@@ -6,7 +6,7 @@ AI-powered web application that converts text notes into voice-based learning.
 
 ## 🚀 Features
 - 🎤 Voice Input
-- 🌍 Multi-language Support (English & Hindi)
+- 🌍 Multi-language Support 
 - 🔊 Text-to-Speech Output
 - ⚡ Fast Processing
 - 🎛 Adjustable Speed
