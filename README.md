@@ -10,7 +10,7 @@ AI-powered web application that converts text notes into voice-based learning.
 - 🔊 Text-to-Speech Output
 - ⚡ Fast Processing
 - 🎛 Adjustable Speed
-- 🔗 Murf AI Integration (Optional)
+- 🔗 Murf AI Integration
 
 ---
 
