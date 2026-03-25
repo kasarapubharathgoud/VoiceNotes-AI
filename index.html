@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>VoiceNotes AI</title>
+
+  <script src="https://kit.fontawesome.com/6c5c8a2b9d.js"></script>
+
+  <style>
+    body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+}
+
+    .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: white;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+    .title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #667eea;
+    }
+
+    .main {
+      display: flex;
+      height: calc(100vh - 70px);
+    }
+
+    .sidebar {
+  background: linear-gradient(180deg, #4f46e5, #6366f1);
+  color: white;
+  padding: 20px;
+  border-radius: 0 15px 15px 0;
+}
+
+.sidebar h3 {
+  margin-bottom: 15px;
+}
+
+.sidebar li {
+  margin: 10px 0;
+  opacity: 0.9;
+}
+
+    .content {
+      flex: 1;
+      display: flex;
+    }
+
+    .input, .output {
+      flex: 1;
+      padding: 20px;
+    }
+
+    .input {
+      background: white;
+      border-right: 1px solid #ddd;
+    }
+
+    .output {
+      background: #f9f9ff;
+    }
+
+    textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 15px;
+  outline: none;
+}
+
+textarea:focus {
+  border-color: #4f46e5;
+  box-shadow: 0 0 5px rgba(79,70,229,0.3);
+}
+
+    .controls {
+      margin-top: 10px;
+    }
+
+    button {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  margin: 5px;
+  border-radius: 8px;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #4338ca;
+  transform: translateY(-2px);
+}
+    .outputBox {
+  background: #f9fafb; /* softer background */
+  padding: 18px;
+  border-radius: 12px;
+  min-height: 200px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border: 1px solid #eee; /* adds clean border */
+  transition: 0.3s;
+}
+    .tag {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+    .container {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+}
+
+.left, .right {
+  background: white;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.left {
+  flex: 2;
+}
+
+.right {
+  flex: 1;
+}
+
+  </style>
+</head>
+
+<body>
+
+<div class="header">
+  <div class="title">🎙️ VoiceNotes AI</div>
+  <div>✨ EchoMinds</div>
+</div>
+
+<div class="main">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <h3>Features</h3>
+    <p>🎤 Voice Input</p>
+    <p>🌍 Multi-language</p>
+    <p>🔊 Voice Output</p>
+    <p>⚡ Fast AI</p>
+  </div>
+
+  <!-- Main Content -->
+  <div class="content">
+
+    <!-- Input -->
+    <div class="input">
+      <h3>Enter Notes</h3>
+
+      <textarea id="inputText" placeholder="Type or speak your notes..."></textarea>
+
+      <div class="controls">
+        <select id="language">
+          <option value="en-US">English</option>
+          <option value="hi-IN">Hindi</option>
+        </select>
+
+        <label>Speed:</label>
+        <input type="range" id="speed" min="0.5" max="2" step="0.1" value="1">
+      </div>
+
+      <div>
+        <button onclick="generateLecture()">▶ Generate</button>
+        <button onclick="startListening()">🎤 Speak</button>
+        <button onclick="stopVoice()">⛔ Stop</button>
+        <button onclick="clearText()">🧹 Clear</button>
+        <button onclick="openMurf()">🔊 Murf</button>
+      </div>
+    </div>
+
+    <!-- Output -->
+    <div class="output">
+      <h3>AI Output</h3>
+
+      <div class="outputBox">
+  <span class="tag">AI Generated</span>
+  <p id="outputText"></p>
+</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
